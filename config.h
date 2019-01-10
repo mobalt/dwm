@@ -101,6 +101,11 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_t,      schemeToggle,   {0} },
 	{ MODKEY|ShiftMask,             XK_z,      schemeCycle,    {0} },
+	{ MODKEY|ControlMask|ShiftMask, XK_h,           togglehorizontalmax, NULL },
+	{ MODKEY|ControlMask|ShiftMask, XK_l,           togglehorizontalmax, NULL },
+	{ MODKEY|ControlMask|ShiftMask, XK_j,           toggleverticalmax,   NULL },
+	{ MODKEY|ControlMask|ShiftMask, XK_k,           toggleverticalmax,   NULL },
+	{ MODKEY|ControlMask,           XK_m,           togglemaximize,      {0} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
