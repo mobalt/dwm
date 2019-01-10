@@ -1,6 +1,6 @@
-diff -r 050d521d66d8 config.def.h
---- a/config.def.h	Tue Aug 24 13:13:20 2010 +0100
-+++ b/config.def.h	Sun Sep 05 18:43:07 2010 +0200
+diff -r 050d521d66d8 config.h
+--- a/config.h	Tue Aug 24 13:13:20 2010 +0100
++++ b/config.h	Sun Sep 05 18:43:07 2010 +0200
 @@ -57,6 +57,7 @@
  static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
  static const char *termcmd[]  = { "st", NULL };
