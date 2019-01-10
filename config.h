@@ -52,6 +52,7 @@ static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
 #include "gaplessgrid.c"
+#include "horizgrid.c"
 #include "tcl.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -59,6 +60,7 @@ static const Layout layouts[] = {
 	{ "float ><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 	{ "gaplessgrid ###",      gaplessgrid },
+	{ "horizGrid ###",      horizgrid },
 	{ "|||",                tcl },
 	{ NULL,       NULL },
 };
