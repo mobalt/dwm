@@ -1,8 +1,8 @@
 Author: Chris Noxz <chris@noxz.tech>
 
-diff -upN dwm-6.1/config.def.h dwm-nrowgrid-6.1/config.def.h
---- dwm-6.1/config.def.h	2015-11-08 23:11:48.000000000 +0100
-+++ dwm-nrowgrid-6.1/config.def.h	2018-10-01 10:44:05.631382842 +0200
+diff -upN dwm-6.1/config.h dwm-nrowgrid-6.1/config.h
+--- dwm-6.1/config.h	2015-11-08 23:11:48.000000000 +0100
++++ dwm-nrowgrid-6.1/config.h	2018-10-01 10:44:05.631382842 +0200
 @@ -34,11 +34,15 @@ static const float mfact     = 0.55; /*
  static const int nmaster     = 1;    /* number of clients in master area */
  static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */

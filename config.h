@@ -51,6 +51,8 @@ static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] 
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
+#define FORCE_VSPLIT 1
+#include "nrowgrid.c"
 #include "gaplessgrid.c"
 #include "horizgrid.c"
 #include "tcl.c"
@@ -61,6 +63,7 @@ static const Layout layouts[] = {
 	{ "[M]",      monocle },
 	{ "gaplessgrid ###",      gaplessgrid },
 	{ "horizGrid ###",      horizgrid },
+	{ "nrowgrid ###",      nrowgrid },
 	{ "|||",                tcl },
 	{ NULL,       NULL },
 };
