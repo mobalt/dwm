@@ -4,15 +4,15 @@ Date: Mon, 9 Nov 2015 12:38:28 -0800
 Subject: [PATCH] Added horizgrid function
 
 ---
- config.def.h |  2 ++
+ config.h |  2 ++
  horizgrid.c  | 32 ++++++++++++++++++++++++++++++++
  2 files changed, 34 insertions(+)
  create mode 100644 horizgrid.c
 
-diff --git a/config.def.h b/config.def.h
+diff --git a/config.h b/config.h
 index eaae8f3..c2ad519 100644
---- a/config.def.h
-+++ b/config.def.h
+--- a/config.h
++++ b/config.h
 @@ -36,11 +36,13 @@ static const float mfact      = 0.55; /* factor of master area size [0.05..0.95]
  static const int nmaster      = 1;    /* number of clients in master area */
  static const Bool resizehints = True; /* True means respect size hints in tiled resizals */
@@ -23,7 +23,7 @@ index eaae8f3..c2ad519 100644
  	{ "[]=",      tile },    /* first entry is default */
  	{ "><>",      NULL },    /* no layout function means floating behavior */
  	{ "[M]",      monocle },
-+	{ "###",      horizgrid },
++	{ "horizGrid ###",      horizgrid },
  };
  
  /* key definitions */
