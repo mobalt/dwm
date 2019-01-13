@@ -56,6 +56,7 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 #include "gaplessgrid.c"
 #include "horizgrid.c"
 #include "tcl.c"
+#include "maximize.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "tile []=",      tile },    /* first entry is default */
@@ -118,6 +119,11 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_t,      schemeToggle,   {0} },
 	{ MODKEY|ShiftMask,             XK_z,      schemeCycle,    {0} },
+	{ MODKEY|ControlMask|ShiftMask, XK_h,           togglehorizontalmax, {0} },
+	{ MODKEY|ControlMask|ShiftMask, XK_l,           togglehorizontalmax, {0} },
+	{ MODKEY|ControlMask|ShiftMask, XK_j,           toggleverticalmax,   {0} },
+	{ MODKEY|ControlMask|ShiftMask, XK_k,           toggleverticalmax,   {0} },
+	{ MODKEY|ControlMask,           XK_m,           togglemaximize,      {0} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
