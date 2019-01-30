@@ -219,6 +219,7 @@ static void sigchld(int unused);
 static void sighup(int unused);
 static void sigterm(int unused);
 static void spawn(const Arg *arg);
+static void sub_non_ascii_chars(char *txt, unsigned int size);
 static void tag(const Arg *arg);
 static void tagmon(const Arg *arg);
 static void tile(Monitor *);
@@ -1066,17 +1067,22 @@ gettextprop(Window w, Atom atom, char *text, unsigned int size)
 	char **list = NULL;
 	int n;
 	XTextProperty name;
+	char buf[size-1];
 
 	if (!text || size == 0)
 		return 0;
 	text[0] = '\0';
 	if (!XGetTextProperty(dpy, w, &name, atom) || !name.nitems)
 		return 0;
-	if (name.encoding == XA_STRING)
-		strncpy(text, (char *)name.value, size - 1);
-	else {
+	if (name.encoding == XA_STRING){
+		strncpy(buf, (char *)name.value, size - 1);
+		sub_non_ascii_chars(buf, size - 1);
+		strncpy(text, buf, size - 1);
+	} else {
 		if (XmbTextPropertyToTextList(dpy, &name, &list, &n) >= Success && n > 0 && *list) {
-			strncpy(text, *list, size - 1);
+			strncpy(buf, *list, size - 1);
+			sub_non_ascii_chars(buf, size - 1);
+			strncpy(text, buf, size - 1);
 			XFreeStringList(list);
 		}
 	}
@@ -1847,6 +1853,17 @@ spawn(const Arg *arg)
 		fprintf(stderr, "dwm: execvp %s", ((char **)arg->v)[0]);
 		perror(" failed");
 		exit(EXIT_SUCCESS);
+	}
+}
+
+void
+sub_non_ascii_chars(char *txt, unsigned int size)
+{
+	int i;
+	for (i = 0; i < size; i++) {
+		if (txt[i] > 127 || txt[i] < 0) {
+			txt[i] = '#';
+		}
 	}
 }
 
